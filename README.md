@@ -16,3 +16,17 @@
 Tham khảo thêm: https://docs.djangoproject.com/en/3.1/intro/tutorial01/
 
 Cú pháp Jinja: https://jinja.palletsprojects.com/en/2.11.x/
+
+## Tutorial session 2: Forms, models, views, authentication:
+
+### Lệnh để tạo superuser: 
+```python manage.py createsuperuser```
+### Lệnh để tạo đồng bộ database: 
+```python manage.py migrate --run-syncdb```
+### Lệnh để tạo chạy server: 
+```python manage.py runserver```
+### Lệnh để tạo chạy server bằng port khác (8888): 
+```python manage.py runserver 127.0.0.1:8888```
+### Tổ hợp phím để tạo dừng server: 
+```Ctl+c```
+
