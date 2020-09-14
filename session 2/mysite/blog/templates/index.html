@@ -1,0 +1,70 @@
+{% extends  'base.html' %}
+{% load static %}
+
+{% block title %}Trang Blog của tôi{% endblock title %}
+
+{% block customize_css %}
+<link href="{% static 'css/blog-home.css' %}" rel="stylesheet">
+{% endblock customize_css %}
+
+{% block content %}
+<div class="col-md-8">
+    {% if user.is_authenticated %}
+    <h1 class="my-4">Kinh nghiệm
+        <small>Học HTML-CSS-JavaScript</small>
+    </h1>
+
+    {% for baiviet in baiviets %}
+
+    <!-- Blog Post -->
+    <div class="card mb-4">
+        <a href="{% url 'blog:noidung_baiviet' baiviet.pk %}">
+            <img class="card-img-top" src="{{ baiviet.anhbia.url }}" alt="Card image cap">
+        </a>
+        <div class="card-body">
+            <h2 class="card-title">{{ baiviet.tieude }}</h2>
+            <p class="card-text">{{ baiviet.noidung|slice:"0:250" }} . . .
+
+                <a class="btn btn-sm btn-outline-primary" href="{% url 'blog:noidung_baiviet' baiviet.pk %}">Đọc
+                    tiếp</a></p>
+        </div>
+        <div class="card-footer text-muted">
+            Đăng lúc {{baiviet.ngay_dang}} bởi
+            {% if user.first_name %}
+            <a href="#">{{user.first_name}}</a>
+            {% else %}
+            <a href="#">{{user.username}}</a>
+            {% endif %}
+        </div>
+    </div>
+
+    {% endfor %}
+
+
+    <!-- Pagination -->
+    <ul class="pagination justify-content-center mb-4">
+        <li class="page-item">
+            <a class="page-link" href="#">&larr; Older</a>
+        </li>
+        <li class="page-item disabled">
+            <a class="page-link" href="#">Newer &rarr;</a>
+        </li>
+    </ul>
+
+    {% else %}
+    <div class="card my-4">
+        <h5 class="card-header">Blog của tôi</h5>
+        <div class="col p-4 d-flex flex-column position-static">
+            <strong class="d-inline-block mb-2 text-primary">Xin chào!</strong>
+            <h3 class="mb-0">Chào mừng đến với Blog của tôi</h3>
+            <p>Bạn cần có tài khoản để đăng nhập vào trang này</p>
+            <p>Chưa có tài khoản?</p>
+            <a href="{% url 'blog:signup' %}" class="stretched-link">Đăng ký tài khoản</a>
+        </div>
+    </div>
+    {% endif %}
+</div>
+{% endblock content %}
+
+
+
