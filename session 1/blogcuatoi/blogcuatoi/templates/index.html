@@ -2,9 +2,7 @@
 
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
-
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   <meta name="description" content="">
@@ -57,51 +55,27 @@
       <!-- Blog Entries Column -->
       <div class="col-md-8">
         <br></br>
-        <h1 class="my-4">Bài viết mới
+        <h1 class="my-4">Bài viết
           <small>Sách và cuộc sống</small>
         </h1>
 
-        <!-- Blog Post -->
+
+    {% for i in '0123456789'|make_list %}
         <div class="card mb-4">
-          <img class="card-img-top" src="https://thetechreader.com/files/2016/11/intelligent-electricity-2-thetechreader-750x300.jpg" alt="Card image cap">
+          <img class="card-img-top" src='{% static "images\img1-750x300.jpg" %}' alt="Card image cap">
           <div class="card-body">
-            <h2 class="card-title">Post Title</h2>
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
-            <a href="#" class="btn btn-primary">Read More &rarr;</a>
+            <h2 class="card-title">Đọc sách quan trọng như thế nào?</h2>
+            <p class="card-text">Đọc sách là một trong những phương thức quan trọng để kết nối với thế giới, hoàn thiện bản thân và thấu hiểu những câu hỏi của câu cuộc đời. <br>Chúng ta hỏi nhau rất nhiều trong cuộc sống nhưng lại quên đi câu hỏi “Chúng ta đang đọc gì?” Câu hỏi tưởng chừng đơn giản nhưng lại vô cùng quan trọng vì có thể thay đổi cuộc sống của mỗi người.</p>
+            <a href="#" class="btn btn-primary">Đọc thêm &rarr;</a>
           </div>
           <div class="card-footer text-muted">
             Posted on January 1, 2020 by
             <a href="#">Blog của tôi!!!</a>
           </div>
         </div>
+        {% endfor %}
 
-        <!-- Blog Post -->
-        <div class="card mb-4">
-          <img class="card-img-top" src="https://ninhkieuhotel.vn/uploads/photos/images/2019/09/cuisine/catering-3-750x300.jpg" alt="Card image cap">
-          <div class="card-body">
-            <h2 class="card-title">Tên bài viết 1</h2>
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
-            <a href="#" class="btn btn-primary">Read More &rarr;</a>
-          </div>
-          <div class="card-footer text-muted">
-            Posted on January 1, 2020 by
-            <a href="#">Start Bootstrap</a>
-          </div>
-        </div>
 
-        <!-- Blog Post -->
-        <div class="card mb-4">
-          <img class="card-img-top" src="https://ninhkieuhotel.vn/uploads/photos/images/2019/09/cuisine/catering-3-750x300.jpg" alt="Card image cap">
-          <div class="card-body">
-            <h2 class="card-title">Tên bài viết 2</h2>
-            <p class="card-text">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Reiciendis aliquid atque, nulla? Quos cum ex quis soluta, a laboriosam. Dicta expedita corporis animi vero voluptate voluptatibus possimus, veniam magni quis!</p>
-            <a href="#" class="btn btn-primary">Read More &rarr;</a>
-          </div>
-          <div class="card-footer text-muted">
-            Posted on January 1, 2020 by
-            <a href="#">Start Bootstrap</a>
-          </div>
-        </div>
 
         <!-- Pagination -->
         <ul class="pagination justify-content-center mb-4">
