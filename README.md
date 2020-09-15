@@ -23,10 +23,8 @@ Cú pháp Jinja: https://jinja.palletsprojects.com/en/2.11.x/
 ```python manage.py createsuperuser```
 ### Lệnh để tạo đồng bộ database: 
 ```python manage.py migrate --run-syncdb```
-### Lệnh để tạo chạy server: 
-```python manage.py runserver```
-### Lệnh để tạo chạy server bằng port khác (8888): 
+### Lệnh để chạy server bằng port khác (8888): 
 ```python manage.py runserver 127.0.0.1:8888```
-### Tổ hợp phím để tạo dừng server: 
+### Tổ hợp phím để dừng server: 
 ```Ctl+c```
 
