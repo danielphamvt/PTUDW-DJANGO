@@ -3,8 +3,8 @@ from .models import BaiViet, BinhLuan
 from django.contrib.auth.forms import UserCreationForm
 from django.urls import reverse_lazy
 from django.shortcuts import render
-from django.contrib.auth.decorators import login_required
-
+# from django.contrib.auth.decorators import login_required
+from django.db.models import Q
 
 # View đăng ký người dùng
 class SignUp(CreateView):
@@ -43,7 +43,6 @@ def noidung_baiviet(request, pk):
     }
     return render(request, 'post.html', context)
 
-
 # View gửi bình luận trong 1 bài viết cụ thể (post.html), người dùng gửi từ request bằng giao thức POST
 def noidung_comment(request):
     if request.method == 'POST':
@@ -65,3 +64,16 @@ def noidung_comment(request):
             'tacgia': tacgia,
         }
         return render(request, 'post.html', context)
+
+
+# View tìm kiếm bài viết, người dùng gửi request bằng giao thức GET
+def timkiem_baiviet(request):
+    if request.method == 'GET':
+        baiviet_kw = request.GET.get('search')
+        baiviets = BaiViet.objects.filter(Q(tieude__contains=baiviet_kw) | Q(noidung__contains = baiviet_kw))
+        context = dict()
+        context['baiviets'] = baiviets
+        context['ketquatimkiem'] = baiviets.count
+        return render(request, "index.html", context)
+    else:
+        return render(request, "index.html", {})

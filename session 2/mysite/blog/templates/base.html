@@ -77,12 +77,15 @@
             <div class="card my-4">
                 <h5 class="card-header">Tìm kiếm</h5>
                 <div class="card-body">
-                    <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Từ khóa...">
-                        <span class="input-group-btn">
-                <button class="btn btn-secondary" type="button">Đi nào!</button>
-              </span>
-                    </div>
+                    <form method="get" action="{% url 'blog:search' %}">
+                        {% csrf_token %}
+                            <div class="input-group">
+                                <input type="text" name="search" class="form-control" placeholder="Từ khóa...">
+                                <span class="input-group-btn">
+                                <button class="btn btn-secondary" type="submit">Tìm bài viết!</button>
+                              </span>
+                            </div>
+                    </form>
                 </div>
             </div>
 

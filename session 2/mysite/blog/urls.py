@@ -1,6 +1,6 @@
 
 from django.urls import path
-from .views import IndexView, SignUpDoneView, SignUp, noidung_baiviet, noidung_comment
+from .views import IndexView, SignUpDoneView, SignUp, noidung_baiviet, noidung_comment, timkiem_baiviet
 from django.contrib.auth import views as auth_views
 from django.urls import reverse_lazy
 app_name = 'blog'
@@ -15,5 +15,6 @@ urlpatterns = [
     path('', IndexView.as_view(), name='home'),
     path('<int:pk>/', noidung_baiviet, name='noidung_baiviet'),
     path('new_comment/', noidung_comment, name='noidung_comment'),
+    path('search/', timkiem_baiviet, name='search'),
 
 ]
