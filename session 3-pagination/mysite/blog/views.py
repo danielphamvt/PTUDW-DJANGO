@@ -5,8 +5,6 @@ from django.urls import reverse_lazy
 from django.shortcuts import render
 # from django.contrib.auth.decorators import login_required
 from django.db.models import Q
-from django.contrib.auth.models import User
-from django.core.paginator import Paginator, EmptyPage, PageNotAnInteger
 
 
 # View đăng ký người dùng
@@ -35,7 +33,6 @@ class IndexView(ListView):
 def noidung_baiviet(request, pk):
     baiviet = BaiViet.objects.get(pk=pk)
     binhluans = BinhLuan.objects.filter(post=baiviet)
-    # print(binhluans)
     context = {
         'baiviet': baiviet,
         'id': pk,
@@ -71,7 +68,7 @@ def noidung_comment(request):
 def timkiem_baiviet(request):
     if request.method == 'GET':
         baiviet_kw = request.GET.get('search')
-        baiviets = BaiViet.objects.filter(Q(tieude__contains=baiviet_kw) | Q(noidung__contains = baiviet_kw))
+        baiviets = BaiViet.objects.filter(Q(tieude__contains=baiviet_kw) | Q(noidung__contains=baiviet_kw))
         context = dict()
         context['baiviets'] = baiviets
         context['ketquatimkiem'] = baiviets.count
