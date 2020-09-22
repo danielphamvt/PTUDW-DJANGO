@@ -11,10 +11,11 @@
 <div class="col-md-8">
 {% if user.is_authenticated %}
     <h1 class="my-4">Bài viết mới
-            {% if ketquatimkiem %}
-            <small>Tìm thấy {{ ketquatimkiem }} bài viết</small>
-            {% else %}
             <small>Học HTML-CSS-JavaScript</small>
+            {% if ketquatimkiem > 0 %}
+                <small>: Tìm thấy {{ ketquatimkiem }} bài viết</small>
+            {% elif ketquatimkiem == 0 %}
+                <small>: Không tìm thấy bài viết phù hợp</small>
             {% endif %}
     </h1>
 
@@ -27,7 +28,7 @@
             <img class="card-img-top" src="{{ baiviet.anhbia.url }}" alt="Card image cap">
         </a>
         <div class="card-body">
-            <a href="{% url 'blog:noidung_baiviet' baiviet.pk %}"><h2 class="card-title">{{ baiviet.tieude }}</h2></a>
+            <a href="{% url 'blog:noidung_baiviet' baiviet.pk %}"><h3 class="card-title">{{ baiviet.tieude }}</h3></a>
             <p class="card-text">{{ baiviet.noidung|slice:"0:250" }} . . .
 
                 <a class="btn btn-sm btn-outline-primary" href="{% url 'blog:noidung_baiviet' baiviet.pk %}">Đọc
@@ -91,6 +92,3 @@
 {% endif %}
 </div>
 {% endblock content %}
-
-
-
